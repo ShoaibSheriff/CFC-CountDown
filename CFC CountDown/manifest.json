@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+
+  "name": "CFC Countdown",
+  "description": "This extension allows the user to change the background color of the current page.",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "ic_cfc.png",
+    "default_popup_remove": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+	"http://api.football-data.org/*"
+  ],
+   "background": {
+		"persistent": false,
+		"scripts": ["background.js"]
+   },
+   "content_scripts" : [{
+		"matches": ["<all_urls>"],
+		"js" : ["content.js"]
+    }]
+  
+}

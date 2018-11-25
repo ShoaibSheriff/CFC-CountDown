@@ -1,0 +1,57 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <style type="text/css">
+      body {
+        margin: 10px;
+        white-space: nowrap;
+      }
+
+      h1 {
+        font-size: 15px;
+      }
+
+      #container {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+    -->
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/BD6195E1-2886-234B-9DC9-490A46190A14/main.js" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/41A09164A094-9CD9-B432-6882-1E5916DB/abn/main.css"/><script src="popup.js"></script>
+	<script>
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "https://ipinfo.io/json/", true);
+	xhr.onreadystatechange = function() {
+	if (xhr.readyState == 4) {
+    // WARNING! Might be injecting a malicious script!
+    document.getElementById("container").innerHTML = xhr.responseText;
+	alert('aavA')
+  
+	}
+	}
+	xhr.send();
+	
+	alert('aavA')
+}
+</script>
+  </head>
+
+  <body>
+	<div style="color:#333333;font-size:15px">Time to match 4 :</div>
+    <div id="container" style="color:#085380;font-size:35px; margin-right: 3px">
+      HH:MM:SS
+    </div>
+  </body>
+</html>
